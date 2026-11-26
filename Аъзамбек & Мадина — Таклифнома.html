@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Аъзамбек &amp; Мадина — Таклифнома</title>
+<meta name="description" content="Таклифномаи тӯйи Аъзамбек ва Мадина — 28 ноябри 2026">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;600&display=swap">
+<style>
+:root{--black:#111015;--gold:#D4AF55;--ivory:#F3EBDD;--charcoal:#1B1920}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:56px}
+body{background:var(--black);color:var(--ivory);font:300 16px/1.7 Montserrat,sans-serif;overflow-x:hidden;padding-top:env(safe-area-inset-top,0px)}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+main,header,footer{position:relative;z-index:1}
+header{position:fixed;top:env(safe-area-inset-top,0px);right:0;left:0;z-index:20;display:flex;justify-content:flex-end;gap:6px;padding:10px 14px}
+header button,.fab{background:rgba(17,16,21,.8);color:var(--gold);border:1px solid var(--gold);border-radius:20px;font:500 12px Montserrat,sans-serif;letter-spacing:.1em;padding:6px 12px;cursor:pointer;transition:.3s}
+header button.on,header button:hover,.fab:hover{background:var(--gold);color:var(--black)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+section{padding:72px 18px;max-width:1000px;margin:0 auto;text-align:center}
+h2{font:600 clamp(1.8rem,6vw,2.8rem)/1.2 'Playfair Display',serif;color:var(--gold);margin-bottom:12px}
+.orn{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gold);margin:0 auto 28px;max-width:280px}
+.orn:before,.orn:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn:after{transform:scaleX(-1)}
+.orn i{width:9px;height:9px;background:var(--gold);transform:rotate(45deg)}
+.card{background:var(--charcoal);border:1px solid var(--gold);border-radius:18px;padding:26px 20px;box-shadow:0 10px 30px rgba(0,0,0,.35);max-width:620px;margin:0 auto}
+.btn{display:inline-block;margin-top:16px;padding:12px 28px;border:1px solid var(--gold);border-radius:30px;color:var(--gold);background:transparent;font:500 13px Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:.3s}
+.btn:hover{background:var(--gold);color:var(--black)}
+/* hero + opening */
+#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding-top:70px}
+.op{opacity:0;animation:in 1.1s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--d,0s)}
+@keyframes in{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
+.glow{width:160px;height:160px;position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(212,175,85,.25),transparent 65%);animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.25);opacity:.6}}
+.rings{width:84px;height:54px;position:relative}
+.names{display:flex;align-items:center;justify-content:center;gap:clamp(8px,3vw,28px);flex-wrap:wrap;margin:10px 0}
+.nm{font:600 clamp(2.4rem,10.5vw,5.2rem)/1.1 'Cormorant Garamond','Playfair Display',serif;letter-spacing:.04em;background:linear-gradient(180deg,var(--gold),var(--gold));-webkit-background-clip:text;background-clip:text;color:var(--gold);text-shadow:0 0 28px rgba(212,175,85,.25)}
+.when{font:400 clamp(1rem,3.6vw,1.35rem) 'Playfair Display',serif;letter-spacing:.06em;margin-top:6px}
+.where{opacity:.85;font-size:.95rem;margin-top:4px}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:var(--charcoal);border:1px solid var(--gold);border-radius:16px;padding:16px 10px;margin-top:28px;width:min(100%,430px);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.cd b{display:block;font:600 clamp(1.6rem,7vw,2.4rem)/1 'Playfair Display',serif;color:var(--gold)}
+.cd span{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
+#cdDone{display:none;color:var(--gold);font:600 1.4rem 'Playfair Display',serif;grid-column:1/-1}
+/* reveal */
+.rv{opacity:0;transform:translateY(24px) scale(.98);transition:opacity .9s,transform .9s}
+.rv.show{opacity:1;transform:none}
+/* invitation */
+.inv p{max-width:560px;margin:0 auto 26px;font-size:1.05rem}
+.pair{display:flex;justify-content:center;gap:clamp(20px,8vw,80px);flex-wrap:wrap}
+.pair b{display:block;font:600 1.6rem 'Cormorant Garamond',serif;color:var(--gold)}
+.pair small{letter-spacing:.3em;font-size:.7rem;text-transform:uppercase}
+/* marquee */
+#gal{max-width:none;padding:30px 0 60px}
+.mq{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;padding:50px 0;-webkit-overflow-scrolling:touch}
+.mq::-webkit-scrollbar{display:none}
+.mq img{flex:0 0 clamp(150px,34vw,300px);height:clamp(200px,46vw,400px);object-fit:cover;border-radius:14px;border:1px solid var(--gold);margin:0 10px;transition:transform .15s linear,opacity .15s linear;will-change:transform}
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;max-width:420px;margin:0 auto}
+.cal div{padding:8px 0;border-radius:8px;font-size:.95rem}
+.cal .h{color:var(--gold);font-size:.75rem;letter-spacing:.08em}
+.cal .x{background:transparent;color:var(--black);font-weight:700;font-size:.82rem;position:relative}
+.cal .x:before{content:"♥";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#D4AF55;font-size:3rem;line-height:1;z-index:0}
+.cal .x span{position:relative;z-index:1}
+.mapbox{margin-top:20px;border-radius:14px;overflow:hidden;border:1px solid var(--gold);min-height:240px;display:flex;align-items:center;justify-content:center;padding:18px;font-size:.9rem;opacity:.95}
+.mapbox iframe{width:100%;height:280px;border:0}
+.info{margin:8px 0}
+/* slideshow */
+.ss{position:relative;aspect-ratio:16/10;max-width:620px;margin:0 auto 22px;border-radius:18px;overflow:hidden;border:1px solid var(--gold)}
+.ss img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s;transform:scale(1)}
+.ss img.on{opacity:1;animation:zoom 6s linear forwards}
+@keyframes zoom{to{transform:scale(1.1)}}
+/* choices */
+.ch{display:grid;gap:12px;max-width:440px;margin:0 auto}
+.ch button{background:var(--charcoal);color:var(--ivory);border:1px solid var(--gold);border-radius:14px;padding:14px;font:400 .82rem Montserrat,sans-serif;cursor:pointer;transition:.3s}
+.ch button:hover,.ch button.sel{background:var(--gold);color:var(--black);transform:translateY(-2px)}
+.msg{margin-top:14px;color:var(--gold);min-height:1.6em;font:400 .82rem 'Playfair Display',serif}
+footer{text-align:center;padding:50px 18px calc(60px + env(safe-area-inset-bottom,0px))}
+footer b{font:600 1.7rem 'Cormorant Garamond',serif;color:var(--gold)}
+.fab{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;width:46px;height:46px;border-radius:50%;padding:0;font-size:18px;display:flex;align-items:center;justify-content:center}
+#mus{left:14px}#top{right:14px;opacity:0;pointer-events:none}#top.v{opacity:1;pointer-events:auto}
+#mus.play span{display:inline-block;animation:spin 5s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<header>
+<button data-l="tj" aria-label="Тоҷикӣ">TJ</button><button data-l="ru" aria-label="Русский">RU</button>
+</header>
+<main>
+<section id="hero">
+<div class="orn op" style="--d:.3s"><i></i></div>
+<div class="op" style="--d:.9s;position:relative;display:flex;justify-content:center;align-items:center"><div class="glow"></div>
+<svg class="rings" viewBox="0 0 84 54" fill="none" stroke="#D4AF55" stroke-width="2.4" aria-label="Wedding rings" role="img"><circle cx="29" cy="30" r="19"/><circle cx="55" cy="30" r="19"/><path d="M24 8l5-5 5 5-5 6z" fill="#D4AF55" stroke="none"/></svg></div>
+<h1 class="names"><span class="nm op" style="--d:1.6s">Аъзамбек</span><span class="nm op" style="--d:1.9s;font-size:.5em">&amp;</span><span class="nm op" style="--d:2.2s">Мадина</span></h1>
+<p class="when op" style="--d:2.7s" data-t="date"></p>
+<p class="where op" style="--d:3.1s" data-t="place"></p>
+<div class="cd op" style="--d:3.5s" role="timer"><div><b id="cdd">00</b><span data-t="cdD"></span></div><div><b id="cdh">00</b><span data-t="cdH"></span></div><div><b id="cdm">00</b><span data-t="cdM"></span></div><div><b id="cds">00</b><span data-t="cdS"></span></div><div id="cdDone" data-t="done"></div></div>
+</section>
+
+<section class="inv rv" id="inv"><h2 data-t="invT"></h2><div class="orn"><i></i></div>
+<p data-t="invP"></p>
+<div class="pair"><div><b>Абдусаматов</b><small data-t="groom"></small></div><div><b>Сангинов</b><small data-t="bride"></small></div></div></section>
+
+<section id="gal" class="rv"><div class="mq" id="mq" aria-label="Gallery"></div></section>
+
+<section class="rv"><h2 data-t="calT"></h2><div class="orn"><i></i></div><div class="card"><div class="cal" id="cal"></div></div></section>
+
+<section class="rv" id="venue"><h2 data-t="venT"></h2><div class="orn"><i></i></div>
+<div class="card"><p>📍</p><p class="info" data-t="venA"></p><div class="mapbox" id="map1"></div><a class="btn" id="nav1" target="_blank" rel="noopener" data-t="road"></a></div></section>
+
+<section class="rv" id="osh"><h2> <span data-t="oshT"></span></h2><div class="orn"><i></i></div>
+<div class="ss" id="ss"></div>
+<div class="card"><p class="info">📅 <span data-t="oshD"></span></p><p class="info">📍 <span data-t="oshP"></span></p><p class="info">🏠 <span data-t="oshH"></span></p><div class="mapbox" id="map2"></div><a class="btn" id="nav2" target="_blank" rel="noopener" data-t="road"></a></div></section>
+
+<section class="rv" id="groomh"><h2 data-t="gT"></h2><div class="orn"><i></i></div>
+<div class="card"><p class="info" data-t="gA"></p><div class="mapbox" id="map3"></div><a class="btn" id="nav3" target="_blank" rel="noopener" data-t="road"></a></div></section>
+
+<section class="rv"><h2 data-t="rsvpT"></h2><div class="orn"><i></i></div>
+<div class="ch" id="rsvp"><button data-v="yes" data-t="yes"></button><button data-v="no" data-t="no"></button></div><p class="msg" id="rsvpM" aria-live="polite"></p></section>
+
+<section class="rv"><h2 data-t="fbT"></h2><div class="orn"><i></i></div>
+<div class="ch" id="fb"><button data-v="yes" data-t="fy"></button><button data-v="no" data-t="fn"></button></div><p class="msg" id="fbM" aria-live="polite"></p></section>
+</main>
+<footer class="rv"><div class="orn"><i></i></div><b>Аъзамбек &amp; Мадина</b><p>28.11.2026</p><p data-t="foot"></p></footer>
+<button class="fab" id="mus" aria-label="Music"><span>♪</span></button>
+<button class="fab" id="top" aria-label="Top">↑</button>
+
+<script>
+/* ===== CONFIG (маълумотро танҳо дар ин ҷо тағйир диҳед) ===== */
+const C={
+ date:"2026-11-28T17:00:00+05:00",
+ music:"",            // масир ба файли аудио, масалан "assets/music/wedding.mp3"; холӣ = оҳанги ороишии дохилӣ
+ gallery:["img/туй/photo_5208495355576658508_w.jpg","img/туй/photo_5208495355576658509_w.jpg","img/туй/photo_5208495355576658510_w.jpg","img/туй/photo_5208495355576658511_w.jpg","img/туй/photo_5208495355576658512_w.jpg","img/туй/photo_5208495355576658513_w.jpg","img/туй/photo_5208495355576658515_w.jpg"],
+ osh:["img/ош/image_1d1d30a.jpg","img/ош/image_43108404.jpg","img/ош/image_6831c05b.jpg","img/ош/image_d2764e61 (1).jpg","img/ош/image_d2764e61.jpg","img/ош/image_e888ff3e (1).jpg","img/ош/image_e888ff3e.jpg"],
+ venue:{addr:"«Алишер», Истаравшан, кӯчаи Мустақиллият 12",url:"https://maps.app.goo.gl/j8CKxrd8E9Db2zgb8",embed:"https://www.google.com/maps?q=X2FM%2B9M8%20Тарабхонаи%20Алишер%2C%20Истаравшан&output=embed",lat:null,lng:null},
+ bride:{addr:"ш. Истаравшан, деҳаи Лакат",url:"https://maps.app.goo.gl/TUyUrSBwagbF8gLq7",embed:"https://www.google.com/maps?q=39.977328,69.003694&z=16&output=embed",lat:39.977328,lng:69.003694},
+ groom:{addr:"Хонаи домод",url:"https://goo.gl/maps/y9J2tmUAZ2THRdV4A",embed:"https://www.google.com/maps?q=39.985288,69.015680&z=16&output=embed",lat:39.985288,lng:69.015680}
+};
+const T={
+tj:{date:"Шанбе, 28 ноябри 2026 · 17:00",place:" ",cdD:"Рӯз",cdH:"Соат",cdM:"Дақиқа",cdS:"Сония",done:"Тӯй оғоз шуд",invT:"Даъватнома",invP:"Бо камоли эҳтиром шуморо ба тӯйи фарзандонамон даъват менамоем. Хушҳол мешавем, ки дар рӯзи мубораки мо дар канори мо бошед.",groom:"Домод",bride:"Арӯс",calT:"НОЯБР 2026",wd:["Дш","Сш","Чш","Пш","Ҷм","Шб","Яш"],venT:"Ҷойи баргузории тӯй",venA:"Толори «Алишер»",road:"Роҳнамо",oshT:"Оши наҳорӣ",oshD:"шанбе, 28 ноябри 2026, соати 09:00",oshP:"Хонаи Арӯс",oshH:"шаҳри Истаравшан, деҳаи Лакат",gT:"Хонаи Домод",gA:"Суроға ва вақт баъдтар илова карда мешавад.",rsvpT:"Оё ба тӯй меоед?",yes:"❤️ Бале, ҳатман меоям!",no:"Мутаассифона, омада наметавонам.",rY:"Ташаккур! Мунтазири шумо ҳастем ❤️",rN:"Ташаккур барои ҷавоб. Мо шуморо ёд мекунем.",fbT:"Оё таклифнома ба шумо маъқул шуд?",fy:"❤️ Бале, хеле маъқул шуд!",fn:"Не, маъқул нашуд.",fYm:"Сипосгузорем! Хурсанд шудем ❤️",fNm:"Ташаккур барои ҳиссаатон, беҳтар мекунем.",foot:"Бо муҳаббат ва эҳтиром.",nomap:"Харита пас аз муайян шудани суроға илова мешавад."},
+ru:{date:"Суббота, 28 ноября 2026 г. в 17:00",place:"Зал «Алишер»",cdD:"Дней",cdH:"Часов",cdM:"Минут",cdS:"Секунд",done:"Торжество началось",invT:"Приглашение",invP:"С глубоким уважением приглашаем вас на свадьбу наших детей. Будем рады видеть вас рядом с нами в этот счастливый день.",groom:"Жених",bride:"Невеста",calT:"НОЯБРЬ 2026",wd:["Пн","Вт","Ср","Чт","Пт","Сб","Вс"],venT:"Место проведения торжества",venA:"Зал «Алишер»",road:"Маршрут",oshT:"Ош",oshD:"суббота, 28 ноября 2026 г. в 09:00",oshP:"Дом невесты",oshH:"г. Истаравшан, село Лакат",gT:"Дом жениха",gA:"Адрес и время будут добавлены позже.",rsvpT:"Вы придёте на свадьбу?",yes:"❤️ Да, обязательно приду!",no:"К сожалению, прийти не смогу.",rY:"Спасибо! Ждём вас ❤️",rN:"Спасибо за ответ. Нам будет вас не хватать.",fbT:"Понравилось ли вам приглашение?",fy:"❤️ Да, очень понравилось!",fn:"Нет, не понравилось.",fYm:"Благодарим! Нам очень приятно ❤️",fNm:"Спасибо за отзыв, мы постараемся лучше.",foot:"С любовью и уважением.",nomap:"Карта появится после уточнения адреса."}};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let lang=store.get("lang")||"tj";
+/* demo art (SVG, 4 палитра) */
+function art(n,label){const g="%23D4AF55",c="%231B1920",i="%23F3EBDD";
+const m=[`<circle cx='150' cy='190' r='60' fill='none' stroke='${g}' stroke-width='5'/><circle cx='210' cy='190' r='60' fill='none' stroke='${g}' stroke-width='5'/>`,
+`<path d='M180 120l20 40 45 6-33 31 8 45-40-22-40 22 8-45-33-31 45-6z' fill='none' stroke='${g}' stroke-width='4'/>`,
+`<rect x='110' y='130' width='140' height='140' transform='rotate(45 180 200)' fill='none' stroke='${g}' stroke-width='4'/><circle cx='180' cy='200' r='30' fill='${g}'/>`,
+`<path d='M180 260C90 200 110 130 180 170 250 130 270 200 180 260z' fill='none' stroke='${g}' stroke-width='5'/>`];
+return `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 480'><rect width='360' height='480' fill='${c}'/><rect x='14' y='14' width='332' height='452' fill='none' stroke='${g}' stroke-width='1.5'/>${m[n%4]}<text x='180' y='400' text-anchor='middle' font-family='serif' font-size='28' fill='${i}'>${label}</text></svg>`}
+const gl=C.gallery.length?C.gallery:["А","М","А & М","28.11","♥","2026"].map((t,i)=>art(i,t));
+const os=C.osh.length?C.osh:["Ош","Дастархон","Оила","Меҳмонон"].map((t,i)=>art(i+1,t));
+/* gallery */
+const mq=$("#mq");mq.innerHTML=[...gl,...gl].map((s,i)=>`<img src="${s}" alt="Аъзамбек &amp; Мадина ${i%gl.length+1}" ${i>2?'loading="lazy"':''} draggable="false">`).join("");
+let paused=false;const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+mq.addEventListener("mouseenter",()=>paused=true);mq.addEventListener("mouseleave",()=>paused=false);
+mq.addEventListener("touchstart",()=>paused=true,{passive:true});mq.addEventListener("touchend",()=>setTimeout(()=>paused=false,1500));
+function tick(){const imgs=mq.children;if(!imgs.length)return requestAnimationFrame(tick);
+const half=mq.scrollWidth/2;if(!paused&&!rm)mq.scrollLeft+=.6;if(mq.scrollLeft>=half)mq.scrollLeft-=half;else if(mq.scrollLeft<=0&&paused===false&&rm===false)mq.scrollLeft+=half;
+const r=mq.getBoundingClientRect(),cx=r.left+r.width/2;
+for(const im of imgs){const b=im.getBoundingClientRect(),d=Math.abs(b.left+b.width/2-cx)/(r.width/2),s=Math.max(.72,1.12-d*.45);im.style.transform=`scale(${s})`;im.style.opacity=Math.max(.45,1-d*.5)}
+requestAnimationFrame(tick)}
+window.addEventListener("load",()=>{mq.scrollLeft=mq.scrollWidth/4;tick()});
+/* slideshow */
+const ss=$("#ss");ss.innerHTML=os.map((s,i)=>`<img src="${s}" alt="Ош ${i+1}" ${i?'loading="lazy"':''}>`).join("");
+let si=0;const sl=[...ss.children];sl[0].classList.add("on");setInterval(()=>{sl[si].classList.remove("on");si=(si+1)%sl.length;sl[si].classList.add("on")},5000);
+/* maps */
+function mapFill(id,nid,v){const el=$(id),q=encodeURIComponent(v.addr||"");
+if(v.lat&&v.lng){const d=.004;el.innerHTML=`<iframe loading="lazy" title="Map" src="https://www.openstreetmap.org/export/embed.html?bbox=${v.lng-d},${v.lat-d},${v.lng+d},${v.lat+d}&layer=mapnik&marker=${v.lat},${v.lng}"></iframe>`;el.style.padding=0}
+else if(v.embed){el.innerHTML=`<iframe loading="lazy" title="Map" src="${v.embed}" referrerpolicy="no-referrer-when-downgrade"></iframe>`;el.style.padding=0}
+else if(v.url){el.innerHTML=`<a class="btn" href="${v.url}" target="_blank" rel="noopener">Google Maps</a>`}
+else{el.dataset.nomap=1;el.textContent=T[lang].nomap}
+const a=$(nid);if(v.url)a.href=v.url;else if(v.lat&&v.lng)a.href=`https://www.google.com/maps/search/?api=1&query=${v.lat},${v.lng}`;else if(v.addr)a.href=`https://www.google.com/maps/search/?api=1&query=${q}`;else a.style.display="none"}
+mapFill("#map1","#nav1",C.venue);mapFill("#map2","#nav2",C.bride);mapFill("#map3","#nav3",C.groom);
+/* language */
+function setLang(l){lang=l;store.set("lang",l);document.documentElement.lang=l==="tj"?"tg":"ru";const t=T[l];
+$$("[data-t]").forEach(e=>e.textContent=t[e.dataset.t]);$$("[data-l]").forEach(b=>b.classList.toggle("on",b.dataset.l===l));
+$$(".mapbox[data-nomap]").forEach(e=>e.textContent=t.nomap);
+const cal=$("#cal");let h=t.wd.map(d=>`<div class="h">${d}</div>`).join("");const off=(new Date(2026,10,1).getDay()+6)%7;
+h+="<div></div>".repeat(off);for(let d=1;d<=30;d++)h+=d===28?' <div class="x" aria-label="28 ноябр — рӯзи тӯй"><span>28</span></div>':`<div>${d}</div>`;cal.innerHTML=h;
+["rsvp","fb"].forEach(k=>show(k));}
+$$("[data-l]").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+/* choices */
+function show(k){const v=store.get(k),m=$("#"+k+"M")||$("#rsvpM");const el=k==="rsvp"?$("#rsvpM"):$("#fbM");
+$$("#"+k+" button").forEach(b=>b.classList.toggle("sel",b.dataset.v===v));
+const t=T[lang];el.textContent=v?(k==="rsvp"?(v==="yes"?t.rY:t.rN):(v==="yes"?t.fYm:t.fNm)):""}
+["rsvp","fb"].forEach(k=>$("#"+k).addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;store.set(k,b.dataset.v);show(k)}));
+/* countdown */
+const target=new Date(C.date).getTime(),p=n=>String(n).padStart(2,"0");
+function cd(){let s=Math.floor((target-Date.now())/1000);const done=s<=0;if(done)s=0;
+$("#cdd").parentNode.parentNode.querySelectorAll("div:not(#cdDone)").forEach(d=>d.style.display=done?"none":"");$("#cdDone").style.display=done?"block":"none";
+$("#cdd").textContent=p(Math.floor(s/86400));$("#cdh").textContent=p(Math.floor(s%86400/3600));$("#cdm").textContent=p(Math.floor(s%3600/60));$("#cds").textContent=p(s%60)}
+cd();setInterval(cd,1000);
+/* reveal / top */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target)}}),{threshold:.12});$$(".rv").forEach(e=>io.observe(e));
+const tp=$("#top");addEventListener("scroll",()=>tp.classList.toggle("v",scrollY>innerHeight*.6),{passive:true});tp.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+/* music */
+const mb=$("#mus");let ac,au,on=false,nodes=[];
+function start(){if(C.music){au=au||Object.assign(new Audio(C.music),{loop:true,volume:.5});return au.play()}
+if(!ac){ac=new(window.AudioContext||window.webkitAudioContext)();const g=ac.createGain();g.gain.value=.05;g.connect(ac.destination);
+[220,277.18,329.63,440].forEach((f,i)=>{const o=ac.createOscillator(),lg=ac.createGain(),l=ac.createOscillator(),lo=ac.createGain();o.type="sine";o.frequency.value=f;lg.gain.value=.25;l.frequency.value=.08+i*.03;lo.gain.value=.2;l.connect(lo);lo.connect(lg.gain);o.connect(lg);g.connect(ac.destination);o.start();l.start()})}
+return ac.resume()}
+mb.onclick=async()=>{try{if(on){au?au.pause():ac.suspend();on=false}else{await start();on=true}}catch(e){on=false}mb.classList.toggle("play",on);mb.setAttribute("aria-pressed",on)};
+/* particles */
+(function(){const cv=$("#fx"),x=cv.getContext("2d");let W,H,P=[];
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;P=Array.from({length:W<600?22:46},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.5,v:Math.random()*.3+.1,a:Math.random()*.5+.2,p:Math.random()*6}))}
+rs();addEventListener("resize",rs);
+(function f(){x.clearRect(0,0,W,H);for(const q of P){q.y-=q.v;q.p+=.02;if(q.y<-5){q.y=H+5;q.x=Math.random()*W}x.globalAlpha=q.a*(.6+.4*Math.sin(q.p));x.fillStyle="#D4AF55";x.beginPath();x.arc(q.x+Math.sin(q.p)*6,q.y,q.r,0,6.3);x.fill()}if(!rm)requestAnimationFrame(f)})()})();
+setLang(lang);
+</script>
+</body>
+</html>
